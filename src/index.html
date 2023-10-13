@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Read Aloud Assistant</title>
+  </head>
+  <body>
+    <div class="control-panel --shadow">
+      <button
+        type="button"
+        id="light-toggle-button"
+        class="control-panel__button"
+        title="Light Switch"
+      >
+        ☀️
+      </button>
+      <button
+        type="button"
+        id="hotkey-toggle-button"
+        class="control-panel__button"
+        title="Toggle Keyboard Shortcuts"
+      >
+        ⌨️
+      </button>
+    </div>
+
+    <header>
+      <h1 class="--text-center">Read Aloud</h1>
+    </header>
+
+    <div id="input-container" class="input-container --shadow">
+      <input
+        type="text"
+        id="text-input"
+        class="text-input"
+        title="You must enable JavaScript on this page!"
+        placeholder="You must enable JavaScript on this page!"
+        style="cursor: not-allowed"
+        disabled
+      />
+      <button
+        type="reset"
+        id="text-input-reset-button"
+        class="reset-button"
+        title="Clear Input"
+      >
+        <span class="reset-button-icon">x</span>
+      </button>
+    </div>
+
+    <main id="text-body" class="text-body"></main>
+
+    <footer class="--text-center --no-shrink">
+      Designed for
+      <a
+        href="https://www.microsoft.com/en-us/edge/features/read-aloud?form=MT00D8"
+        >Read Aloud</a
+      >
+      on Microsoft Edge
+    </footer>
+  </body>
+</html>

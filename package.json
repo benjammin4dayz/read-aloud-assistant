@@ -1,0 +1,26 @@
+{
+  "name": "readaloud",
+  "version": "1.0.0",
+  "description": "A document to facilitate the use of MS Edge Read Aloud",
+  "main": "main.js",
+  "scripts": {
+    "build": "npm run _pack && npm run _post-build",
+    "build:zip": "npm run _pack && npm run _post-build:zip",
+    "_pack": "webpack --config webpack.config.js",
+    "_post-build": "node post-build.js",
+    "_post-build:zip": "node post-build.js --zip",
+    "clean": "rm -rf dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "benjammin4dayz",
+  "license": "MIT",
+  "devDependencies": {
+    "archiver": "^6.0.1",
+    "css-loader": "^6.8.1",
+    "html-inline-script-webpack-plugin": "^3.2.1",
+    "html-webpack-plugin": "^5.5.3",
+    "style-loader": "^3.3.3",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  }
+}

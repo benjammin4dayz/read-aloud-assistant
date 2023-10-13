@@ -4,7 +4,15 @@ Effortlessly convert text to speech using this simple HTML document. Designed fo
 
 ## Installation
 
-Download the .html and open it with MS Edge
+Download a release and extract the .zip file anywhere.
+
+#### Optional: Create a Shortcut
+
+1. Navigate to the extracted files.
+2. Right click `shortcut.bat` and create a shortcut.
+3. Rename and place the shortcut anywhere for your convenience.
+
+_**Note:** If MS Edge is your system default browser, you may prefer to create a shortcut directly to the HTML document._
 
 ## Usage
 

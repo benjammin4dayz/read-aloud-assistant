@@ -1,0 +1,45 @@
+name: Build and Release
+
+on:
+  workflow_dispatch:
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+    
+      - name: Create Artifact
+        run: |
+          echo "NPM_PACKAGE_VERSION=$(node -p "require('./package.json').version")" >> $GITHUB_ENV
+          npm install
+          npm run build:zip
+
+      - name: Create Draft Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          NPM_PACKAGE_VERSION: ${{ env.NPM_PACKAGE_VERSION }}
+        with:
+          tag_name: v${{ env.NPM_PACKAGE_VERSION }}
+          release_name: v${{ env.NPM_PACKAGE_VERSION }}
+          draft: true
+          prerelease: false
+  
+      - name: Upload Artifact to Release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./dist/read-aloud.zip
+          asset_name: read-aloud.zip
+          asset_content_type: application/zip
